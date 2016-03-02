@@ -16,19 +16,21 @@ class Task < ActiveRecord::Base
     FINISHED = 2
   end
 
-    def not_started?
-      self.status ==
-      Status::NOT_STARTED
-    end
+validates :title,presence: true,uniqueness:true
 
-    def in_progress?
-      self.status ==
-      Status::IN_PROGRESS
-    end
+  def not_started?
+    self.status ==
+    Status::NOT_STARTED
+  end
 
-    def finished?
-      self.status ==
-      Status::FINISHED
-    end
+  def in_progress?
+    self.status ==
+    Status::IN_PROGRESS
+  end
+
+  def finished?
+    self.status ==
+    Status::FINISHED
+  end
 
 end
