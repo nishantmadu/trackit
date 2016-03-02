@@ -5,3 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+def seed_task(title)
+  Task.find_or_create_by(title:title)
+  print "."
+end
+
+puts "# Seeding Tasks"
+["Eat","Sleep","Code","Repeat"].each do |title|
+  seed_task(title)
+end
+puts " Done."
