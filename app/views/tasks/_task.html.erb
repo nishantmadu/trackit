@@ -1,18 +1,18 @@
-<li>
+<li id= "<%= dom_id(task) %>">
   <%= task.title %>
   (
   <%= link_to("Start", task_path(task,status:
-  Task::Status::IN_PROGRESS), method: :patch) if
+  Task::Status::IN_PROGRESS), method: :patch,remote: true) if
   task.not_started? %>
 
   <%= link_to("Finish", task_path(task,status:
   Task::Status::FINISHED), method:
-  :patch) if task.in_progress? %>
+  :patch,remote: true) if task.in_progress? %>
 <%= content_tag(:span, "|") if task.in_progress?
 %>
   <%= link_to("Shelf", task_path(task,status:
   Task::Status::NOT_STARTED), method:
-  :patch) if task.in_progress? || task.finished? %>
+  :patch,remote: true) if task.in_progress? || task.finished? %>
 
 
   )
